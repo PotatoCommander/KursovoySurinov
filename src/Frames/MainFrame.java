@@ -10,7 +10,6 @@ import Util.PaymentCSVRepository;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 
@@ -44,6 +43,8 @@ public class MainFrame extends JFrame
     private JButton dropSelectionButton;
     private PaymentCSVRepository repository;
     private ArrayList<CSVModel> list;
+    private JMenuItem aboutAuthorButtonMenu;
+    private JMenuItem aboutProgramButtonMenu;
 
     public MainFrame(String title)
     {
@@ -57,7 +58,6 @@ public class MainFrame extends JFrame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
 
-        menuBar.add(createFileMenuBar());
         menuBar.add(createHelpMenuBar());
         setJMenuBar(menuBar);
         fileHelper = new FileHelper(this);
@@ -96,6 +96,10 @@ public class MainFrame extends JFrame
         hotPriceTextBox.addKeyListener(new FloatKeyAdapter());
         coldPriceTextBox.addKeyListener(new FloatKeyAdapter());
         exitButton.addActionListener(e -> System.exit(EXIT_ON_CLOSE));
+        aboutProgramButtonMenu.addActionListener(e->new HelpFrame());
+        aboutProgramButton.addActionListener(e-> new HelpFrame());
+        aboutAuthorButtonMenu.addActionListener(e -> new AboutFrame());
+        aboutAuthorButton.addActionListener(e-> new AboutFrame());
     }
 
     private void monthPrevComboBoxChanged()
@@ -496,35 +500,16 @@ public class MainFrame extends JFrame
         panel.add(hotWaterLabel);
     }
 
-    private JMenu createFileMenuBar()
-    {
-        var fileMenu = new JMenu("Файл");
-
-        newMenuItem = new JMenuItem("Новый");
-        openMenuItem = new JMenuItem("Открыть");
-        saveMenuItem = new JMenuItem("Сохранить");
-        saveAsMenuItem = new JMenuItem("Сохранить как...");
-
-
-        fileMenu.add(newMenuItem);
-        fileMenu.add(openMenuItem);
-        fileMenu.add(saveMenuItem);
-        fileMenu.add(saveAsMenuItem);
-
-        return fileMenu;
-    }
 
     private JMenu createHelpMenuBar()
     {
         var helpMenu = new JMenu("Помощь");
 
-        var helpButton = new JMenuItem("Помощь");
-        var aboutAuthorButton = new JMenuItem("Об авторе");
-        var aboutProgramButton = new JMenuItem("О программе");
+        aboutProgramButtonMenu = new JMenuItem("Помощь");
+        aboutAuthorButtonMenu = new JMenuItem("Об авторе");
 
-        helpMenu.add(helpButton);
-        helpMenu.add(aboutAuthorButton);
-        helpMenu.add(aboutProgramButton);
+        helpMenu.add(aboutProgramButtonMenu);
+        helpMenu.add(aboutAuthorButtonMenu);
 
         return helpMenu;
     }

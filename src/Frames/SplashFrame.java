@@ -45,7 +45,7 @@ class SplashFrame extends JFrame
 
         jbtStart.addActionListener(e -> {
             dispose();
-            new MainFrame("Формирование списка абитуриентов");
+            new MainFrame("Калькулятор расхода воды");
         });
         jbtExit.addActionListener(e -> System.exit(EXIT_ON_CLOSE));
         add(new myComponent());
@@ -62,7 +62,7 @@ class SplashFrame extends JFrame
             g.setFont(font1);
             g.drawString(" Белорусский национальный технический университет", 200, 30);
             g.drawString(" Выполнил: студент гр.10702318", 530, 300);
-            g.drawString(" Бодрый Никита Сергеевич", 530, 320);
+            g.drawString(" Суринов Артём Александрович", 530, 320);
             g.drawString(" Проверил: к.ф.-м.н.,доц.", 530, 370);
             g.drawString(" Сидорик Валерий Владимирович", 530, 390);
 
@@ -75,7 +75,7 @@ class SplashFrame extends JFrame
             Font font3 = new Font("TimesRoman", Font.BOLD, 25);
             g.setFont(font3);
             g.drawString(" Курсовая работа", 280, 140);
-            g.drawString(" Формирование списка абитуриентов", 145, 200);
+            g.drawString(" Калькулятор расхода воды", 145, 200);
 
 
             Font font4 = new Font("TimesRoman", Font.BOLD, 16);

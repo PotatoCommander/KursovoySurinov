@@ -4,6 +4,6 @@ public class Main
 {
     public static void main(String[] args)
     {
-        new SplashFrame("Список абитуриентов");
+        new SplashFrame("Калькулятор расхода воды");
     }
 }
